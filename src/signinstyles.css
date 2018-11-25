@@ -1,11 +1,17 @@
  .signform {
+    color: #4A4A4A;
     padding-top: 10px;
-    background-color: #FFFFFF;
+    background-color: #F9F7F7;
+    border-radius: 20px;
   }
+
+  .black_bottom {
+    border-bottom: 1px solid black;
+}
   
-  .username {
-    padding-top: 5px;
-    margin-left: 3px;
+  .email {
+    padding-top: 10px;
+    margin-left: 35px;
   }
   
   .password {
@@ -15,8 +21,43 @@
 
   .text-field {
       margin-left: 10px;
+      border-radius: 10px;
+      border-style: solid;
+      border-color: #F0F0F0;
+      block-size: 37px;
+      text-indent: 10px;
+      border-width: 1px;
+      border-color: #F0F0F0;
   }
 
-  .submission {
-      margin: 10px;
+
+  .text-field:hover {
+      border-color: grey;
+      border-width: 1px;
   }
+
+  .text-field:focus,.text-field:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+  .buttons {
+      font-size: 15px;
+      background-color:#466DDB;
+      color: white;
+      margin: 10px;
+      border-radius: 20px;
+      border-width: 2px;
+      border-color:#F9F7F7;
+      padding: 6px 98px;
+  }
+
+  .buttons:hover {
+      border-color: gray;
+      border-width: 2px;
+  }
+
+  .buttons:focus,.submission:active {
+    outline: none !important;
+    box-shadow: none;
+ }
