@@ -5,8 +5,10 @@ import Signinform from './signinform';
 class App extends Component {
 
   state = {
-    password: "username",
-    email: "email",
+    cPassword: '',
+    cEmail: '',
+    ePassword:'',
+    eEmail:'',
     authentication: false
   }
 
@@ -14,12 +16,33 @@ class App extends Component {
     this.setState({
       authentication: true
     })
+    console.log(this.state);
   }
 
-  changeUserInfo = (event) => {
+  changeCustomerEmail = (email) => {
+    this.setState({
+      cEmail: email
+    })
+    }
 
-    console.log(event.target.value)
+
+  changeCustomerPass = (pass) => {
+    this.setState({
+      cPassword: pass
+    })
   }
+
+  changeEmployeeEmail = (email) => {
+    this.setState({
+      eEmail: email
+    })
+    }
+
+  changeEmployeePass = (email) => {
+    this.setState({
+      ePassword: email
+    })
+    }
 
   render() {
     return (
@@ -31,12 +54,12 @@ class App extends Component {
 
         <div className="col-sm-6">
 
-          <Signinform  changeinfo = {this.changeUserInfo} formTitle="Employee Sign-In"></Signinform>
+          <Signinform  email={this.state.eEmail} password={this.state.ePassword} changeEmail = {this.changeEmployeeEmail} changePass = {this.changeEmployeePass} authenticate={this.authenticate} formTitle="Employee Sign-In"></Signinform>
 
         </div>
 
         <div className="col-sm-6">
-          <Signinform  changeinfo = {this.changeUserInfo} formTitle="Customer Sign-In"></Signinform>
+          <Signinform  email={this.state.cEmail} password={this.state.cPassword} changeEmail = {this.changeCustomerEmail} changePass = {this.changeCustomerPass} authenticate={this.authenticate}  formTitle="Customer Sign-In"></Signinform>
         </div>
 
       </div>

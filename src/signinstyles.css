@@ -20,14 +20,13 @@
   }
 
   .text-field {
-      margin-left: 10px;
+      padding: 6px 10px;
+      margin-left: 5px;
       border-radius: 10px;
       border-style: solid;
       border-color: #F0F0F0;
       block-size: 37px;
-      text-indent: 10px;
       border-width: 1px;
-      border-color: #F0F0F0;
   }
 
 
