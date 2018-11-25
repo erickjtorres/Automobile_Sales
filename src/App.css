@@ -1,8 +1,15 @@
-/* .App {
-  text-align: center;
-} */
-#root {
-  background-image: url("https://www.tesla.com/sites/default/files/images/homepage/20180710/ms/homepage-models@2x.jpg?20181117");
+
+
+body {
+
+  background: url("https://www.tesla.com/sites/default/files/images/homepage/20180710/ms/homepage-models@2x.jpg?20181117");
+
+  height: 100%; 
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .App {
@@ -15,10 +22,19 @@
   font-size: 14px;
   text-align: left;
   line-height: 18px;
+  padding-top: 10px;
 }
 
 .company-name:hover {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.forms {
+  padding-top: 20px;
+}
+
+.extra-spacing {
+  margin: 250px;
 }
 
 

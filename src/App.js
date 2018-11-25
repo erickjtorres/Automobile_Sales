@@ -9,7 +9,7 @@ class App extends Component {
       <div className="navbar">
       <h1 className="company-name">Database Project</h1>
       </div>
-      <div className="row">
+      <div className="row forms">
 
         <div className="col-sm-6">
 
@@ -23,6 +23,7 @@ class App extends Component {
 
         </div>
       </div>
+      <div className="row extra-spacing"></div>
       </div>
     );
   }

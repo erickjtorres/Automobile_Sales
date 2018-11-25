@@ -9,7 +9,7 @@ class Signinform extends Component {
             <h3 className="text-center">{this.props.formTitle}</h3>
 
               <div className="row username">
-              <label for="uname">Username</label>
+              <label for="uname">Email</label>
               <input className="text-field" type="text" placeholder="Enter Username" name="uname" required></input>
   
               </div>
