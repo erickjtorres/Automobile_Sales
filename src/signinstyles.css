@@ -1,0 +1,22 @@
+ .signform {
+    padding-top: 10px;
+    background-color: #FFFFFF;
+  }
+  
+  .username {
+    padding-top: 5px;
+    margin-left: 3px;
+  }
+  
+  .password {
+    padding-top: 10px;
+    margin-left: 3px;
+  }
+
+  .text-field {
+      margin-left: 10px;
+  }
+
+  .submission {
+      margin: 10px;
+  }
