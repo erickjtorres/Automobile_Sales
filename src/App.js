@@ -40,7 +40,7 @@ class App extends Component {
       
         <BrowserRouter>
           <div>
-            <Route path="/" render={()=><Login authenticate={this.authenticate} correct={this.state.authentication}/>} exact/>
+            <Route path="/" render={()=><Login authenticate={this.authenticate} authenticated={this.state.authentication}/>} exact/>
             <Route path="/Customer" component = {Customer} exact />
             <Route path="/Employee" component = {Employee} exact />
           </div>
