@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './signinstyles.css';
+import './styles/Formstyles.css';
 
-class Signinform extends Component {
+class Form extends Component {
     constructor(props) {
         super(props);
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -21,7 +21,7 @@ class Signinform extends Component {
         this.props.changePass(event.target.value);
     }
 
-    
+
     render() {
         const email = this.props.email;
         const password = this.props.password;
@@ -63,4 +63,4 @@ class Signinform extends Component {
     }
 }
 
-export default Signinform;
+export default Form;
