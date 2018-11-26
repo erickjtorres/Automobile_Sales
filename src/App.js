@@ -12,11 +12,22 @@ class App extends Component {
     authentication: false
   }
 
+  //Here we will make a post request to the server --> currently changes the authentication state
   authenticate = (valid) => {
-    this.setState({
-      authentication: true
+    fetch('http://localhost:3001/login', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
-    console.log(this.state);
+      .then((response) => response.json())
+      .then((object) => this.setState({
+        authentication: object.valid}))
+      .catch(err => console.error(err))
+    
+      console.log(this.state)
+    
   }
 
   changeCustomerEmail = (email) => {
