@@ -11,7 +11,7 @@ class Login extends Component {
             cPassword: '',
             cEmail: '',
             ePassword:'',
-            eEmail:'',
+            eEmail:''
           }
       }
 

@@ -8,7 +8,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 class App extends Component {
 
   state = {
-    fname: '',
+    fname: 'Welcome, Erick',
     authentication: false
   }
 
@@ -24,7 +24,6 @@ class App extends Component {
       .then((object) => this.setState({
         authentication: object.valid}))
       .catch(err => console.error(err))
-      console.log(this.state)
   } 
 
 
@@ -35,7 +34,8 @@ class App extends Component {
       //every Route will have a navbar!
       <div className="App">
         <div className="navbar">
-          <h1 className="company-name">Tesla Automobile Sales</h1>
+          <h1 className="company-name col-sm-6">Tesla Automobile Sales</h1>
+          <h3 className="company-name col-sm-6 text-right">{this.state.fname}</h3>
         </div>
       
         <BrowserRouter>
