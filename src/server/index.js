@@ -65,6 +65,6 @@ app.post('/stock', function(req, res) {
 
 
 //This is where we will be listening to the requests
-app.listen(3001, () => {
+app.listen(3002, () => {
     console.log('Products server listening on port 3001')
 })
