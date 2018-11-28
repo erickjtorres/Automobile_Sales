@@ -8,7 +8,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 class App extends Component {
 
   state = {
-    fname: 'Welcome, Erick',
+    name: '',
     authentication: false
   }
 
@@ -34,7 +34,7 @@ class App extends Component {
       //every Route will have a navbar!
       <div className="App">
         <div className="navbar">
-          <h1 className="company-name col-sm-6">Tesla Automobile Sales</h1>
+          <a href='http://localhost:3000/' className="company-name col-sm-6">Tesla Automobile Sales</a>
           <h3 className="company-name col-sm-6 text-right">{this.state.fname}</h3>
         </div>
       

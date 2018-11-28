@@ -2,6 +2,9 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+// const functions = require('./functions');
+
+
 
 const app = express();
 
@@ -16,6 +19,9 @@ app.use(bodyParser.json());
 //dummy data
 const emails = ["erick"]
 const passwords = ["torres"]
+const data = [{DATE: 'DATE', VIN: 'VIN', DID: 'DID', BRAND: 'BRAND', MODEL: 'MODEL', COLOR:'COLOR'},
+{DATE: '11/23/2010', VIN: '1232', DID: '123123', BRAND: 'TESLA', MODEL: 'Model X', COLOR: 'RED'},
+{DATE: '11/23/2010', VIN: '1232', DID: '123123', BRAND: 'TESLA', MODEL: 'Model X', COLOR: 'RED'}];
 
 
 //This is in order to read body requests as well
@@ -34,7 +40,29 @@ app.post('/login', function (req, res) {
         console.log(req.body['eEmail']);
         res.send({valid: false});
     }
-  })
+  });
+
+app.post('/purchases', function(req, res)  {
+    //check for cid
+    console.log(req.body.cid);
+    res.send(data);
+
+});
+
+app.post('/sales', function(req, res) {
+    //check for eid
+    console.log(req.body.eid);
+    res.send(data);
+
+});
+
+app.post('/stock', function(req, res) {
+    //check for eid
+    console.log(req.body.eid);
+    res.send(data);
+
+});
+
 
 //This is where we will be listening to the requests
 app.listen(3001, () => {
