@@ -31,6 +31,8 @@ app.use(function(req, res, next) {
 });
 
 app.post('/signup', function(req, res) {
+    //console.log((functions.signup(req.body.fname, req.body.lname, req.body.phone, req.body.eEmail, req.body.ePassword)))
+    
     
 });
 
@@ -43,7 +45,9 @@ app.post('/login', function (req, res) {
     //     console.log(req.body['eEmail']);
     //     res.send({valid: false});
     // }
-    console.log((functions.email(req.body.email, req.body.password)))
+    console.log((functions.signup(req.body.fname, req.body.lname, req.body.phone, req.body.eEmail, req.body.ePassword, req.body.st_num, req.body.st, req.body.city, req.body.state)))
+    
+    
   });
 
 app.post('/purchases', function(req, res)  {

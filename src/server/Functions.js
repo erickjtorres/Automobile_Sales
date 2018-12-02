@@ -24,18 +24,36 @@ var con = mysql.createConnection({
 //   if (error) throw error;
 //   console.log('The solution is: ', results[0].solution);
 // });
-function queries(query) {
+function queries(query, values) {
 con.connect(function(err) {
   if (err) throw err;
-  con.query("SELECT * FROM CUSTOMER", function (err, result, fields) {
+  con.query(query, [values], function (err, result) {
     if (err) throw err;
-    return result;
+    console.log("Success")
   });
 });
 }
 
-exports.email = function(email, password) {
-  const query = "";
-  return queries(query)
-
+exports.esignup = function(fname, lname, phone, email, password,st_num, st, city, state) {
+  var query = "INSERT INTO CUSTOMER(FNAME, LNAME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
+  //var values = [[fname, lname, phone, email, password, st_num, st, city, state]]
+  var values = [['fname', 'lname', 1235, 'email', 'password', 5, 'hull', 'city', 'state']]
+  return queries(query, values)
 }
+
+exports.signup = function(fname, lname, phone, email, password,st_num, st, city, state, type) {
+  if(type=="Customer"){
+    var query = "INSERT INTO CUSTOMER(FNAME, LNAME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
+    var values = [[fname, lname, phone, email, password, st_num, st, city, state]]
+  }
+  else{
+     var query = "INSERT INTO CUSTOMER(FNAME, LNAME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
+     var values = [[fname, lname, phone, email, password, st_num, st, city, state]]
+  //var values = [['fname', 'lname', 1235, 'email', 'password', 5, 'hull', 'city', 'state']]
+  }
+  return queries(query, values)
+}
+
+// exports.login = function(eEmail, ePassword)
+
+
