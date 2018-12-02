@@ -48,6 +48,11 @@ exports.signup = function(fname, lname, phone, email, password,st_num, st, city,
   return queries(query, values)
 }
 
+exports.purchases = function(cid){
+  var query = "SELECT VIN FROM SALES WHERE SALES.CID=cid"
+  return queries(query)
+}
+
 // exports.login = function(eEmail, ePassword)
 
 
