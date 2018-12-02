@@ -34,12 +34,6 @@ con.connect(function(err) {
 });
 }
 
-exports.esignup = function(fname, lname, phone, email, password,st_num, st, city, state) {
-  var query = "INSERT INTO CUSTOMER(FNAME, LNAME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
-  //var values = [[fname, lname, phone, email, password, st_num, st, city, state]]
-  var values = [['fname', 'lname', 1235, 'email', 'password', 5, 'hull', 'city', 'state']]
-  return queries(query, values)
-}
 
 exports.signup = function(fname, lname, phone, email, password,st_num, st, city, state, type) {
   if(type=="Customer"){
