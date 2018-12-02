@@ -2,8 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const functions = require('./functions');
-
+const functions = require('./Functions');
 
 
 const app = express();
@@ -32,19 +31,19 @@ app.use(function(req, res, next) {
 });
 
 app.post('/signup', function(req, res) {
-
-
+    
 });
 
 //Here we are handling the login request
 app.post('/login', function (req, res) {
-    if (emails.includes(req.body.eEmail) && passwords.includes(req.body.ePassword)) {
-        console.log(req.body['ePassword']);
-        res.send({valid: true});
-    } else {
-        console.log(req.body['eEmail']);
-        res.send({valid: false});
-    }
+    // if (emails.includes(req.body.eEmail) && passwords.includes(req.body.ePassword)) {
+    //     console.log(req.body['ePassword']);
+    //     res.send({valid: true});
+    // } else {
+    //     console.log(req.body['eEmail']);
+    //     res.send({valid: false});
+    // }
+    console.log((functions.email(req.body.email, req.body.password)))
   });
 
 app.post('/purchases', function(req, res)  {
