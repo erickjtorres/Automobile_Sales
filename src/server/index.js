@@ -45,6 +45,7 @@ app.post('/login', function (req, res) {
     //     console.log(req.body['eEmail']);
     //     res.send({valid: false});
     // }
+    // console.log(functions.signup())
     
     
     
