@@ -47,13 +47,13 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     
-    
+    console.log((functions.login(req.body.)))
     
   });
 
 app.post('/purchases', function(req, res)  {
     //check for cid
-    console.log(req.body.cid);
+    data = console.log(req.body.cid);
     res.send(data);
 
 });
