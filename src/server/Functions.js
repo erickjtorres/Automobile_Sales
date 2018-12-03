@@ -30,6 +30,7 @@ con.connect(function(err) {
   con.query(query, [values], function (err, result) {
     if (err) throw err;
     console.log("Success")
+    return result
   });
 });
 }
@@ -51,6 +52,7 @@ exports.signup = function(fname, lname, phone, email, password,st_num, st, city,
 exports.purchases = function(cid){
   var query = "SELECT VIN FROM SALES WHERE SALES.CID=cid"
   return queries(query)
+  
 }
 
 // exports.login = function(eEmail, ePassword)
