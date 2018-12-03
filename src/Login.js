@@ -15,8 +15,8 @@ class Login extends Component {
           }
       }
 
-      authenticate = () => {
-          this.props.authenticate(this.state);
+      authenticate = (type) => {
+          this.authenticate(this.state, type)
       }
 
       changeCustomerEmail = (email) => {
@@ -55,12 +55,12 @@ class Login extends Component {
 
             <div className="col-sm-6">
 
-            <Form email={this.state.eEmail} password={this.state.ePassword} changeEmail = {this.changeEmployeeEmail} changePass = {this.changeEmployeePass} authenticate={this.authenticate} formTitle="Employee Sign-In"></Form>
+            <Form email={this.state.eEmail} type={'e'} password={this.state.ePassword} changeEmail = {this.changeEmployeeEmail} changePass = {this.changeEmployeePass} authenticate={this.authenticate} formTitle="Employee Sign-In"></Form>
 
             </div>
 
             <div className="col-sm-6">
-            <Form  email={this.state.cEmail} password={this.state.cPassword} changeEmail = {this.changeCustomerEmail} changePass = {this.changeCustomerPass} authenticate={this.authenticate}  formTitle="Customer Sign-In"></Form>
+            <Form  email={this.state.cEmail} type={'c'} password={this.state.cPassword} changeEmail = {this.changeCustomerEmail} changePass = {this.changeCustomerPass} authenticate={this.authenticate}  formTitle="Customer Sign-In"></Form>
             </div>
 
         </div>

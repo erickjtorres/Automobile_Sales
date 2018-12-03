@@ -12,7 +12,21 @@ class App extends Component {
     authentication: false
   }
 
-  authenticate = (info) => {
+  authenticate = (childState,type ) => {
+    let info = {}
+    if (type === 'c') {
+      info = {
+        email: childState.cEmail,
+        password: childState.cPassword,
+        type: type
+      }
+    } else if (type === 'e') {
+      info = {
+        email: childState.eEmail,
+        password: childState.ePassword,
+        type: type
+      }
+    }
     fetch('http://localhost:3001/login', {
       method: 'POST',
       body: JSON.stringify(info),
@@ -24,6 +38,7 @@ class App extends Component {
       .then((object) => this.setState({
         authentication: object.valid}))
       .catch(err => console.error(err))
+      console.log(info);
   } 
 
 

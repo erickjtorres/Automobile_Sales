@@ -10,7 +10,7 @@ class Form extends Component {
       }
     
     handleSubmit(event) {
-        this.props.authenticate();
+        this.props.authenticate(this.props.type);
         event.preventDefault();
     }
 
