@@ -16,7 +16,7 @@ class Login extends Component {
       }
 
       authenticate = (type) => {
-          this.authenticate(this.state, type)
+          this.props.authenticate(this.state, type)
       }
 
       changeCustomerEmail = (email) => {

@@ -32,8 +32,11 @@ app.use(function(req, res, next) {
 
 app.post('/signup', function(req, res) {
     //console.log((functions.signup(req.body.fname, req.body.lname, req.body.phone, req.body.eEmail, req.body.ePassword)))
-    console.log((functions.signup(req.body.fname, req.body.lname, req.body.phone, req.body.eEmail, req.body.ePassword, req.body.st_num, req.body.st, req.body.city, req.body.state)))
-    
+    if(req.body.type === 'c') {
+        console.log(req.body.fname, req.body.lname, req.body.phone, req.body.email, req.body.password, req.body.st_num, req.body.st, req.body.city, req.body.state)
+    } else if (req.body.type === 'e') {
+        console.log('Not yet finished')
+    }
 });
 
 //Here we are handling the login request
@@ -47,7 +50,7 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     
-    console.log((functions.login(req.body.)))
+    console.log(req.body.email);
     
   });
 

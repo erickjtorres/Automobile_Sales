@@ -6,7 +6,7 @@ class Customer extends Component {
         super(props);
         this.state = {
             purchases: [],
-            cid: "Erick"
+            cid: ""
           }
       }
       getPurchases = (data) => {

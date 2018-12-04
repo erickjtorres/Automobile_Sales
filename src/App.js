@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './Login';
 import Customer from './Customer';
 import Employee from './Employee';
+import CustomerSignup from './CustomerSignup';
 import './styles/App.css';
 import {BrowserRouter, Route} from "react-router-dom";
 
@@ -58,6 +59,8 @@ class App extends Component {
             <Route path="/" render={()=><Login authenticate={this.authenticate} authenticated={this.state.authentication}/>} exact/>
             <Route path="/Customer" component = {Customer} exact />
             <Route path="/Employee" component = {Employee} exact />
+            <Route path="/Signup/Customer" component = {CustomerSignup} exact />
+            {/* <Route path="/Signup/Employee" component = {EmployeeSignup} exact /> */}
           </div>
         </BrowserRouter>
       </div>
