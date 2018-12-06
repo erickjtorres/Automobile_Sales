@@ -15,7 +15,8 @@ class Signup extends Component {
             <a href='/Signup/Employee' className="btn btn-secondary btn-lg col-sm-3  offset-sm-2">Employee</a>
             <div className="spacing col-sm-12"></div>
             </div>
-            <div className="spacing col-sm-12"></div>
+            <div className="bottom-space col-sm-12"></div>
+            <div className="bottom-space col-sm-12"></div>
             </div>
         );
     }
