@@ -1,9 +1,11 @@
 .choice {
-        background-color: #F9F7F7;
+        /* background-color: #F9F7F7; */
         margin: 25px;
         border-radius: 10px;
 }
-
+.text-outline {
+    text-shadow: .5px -.5px 0 #000;
+}
 .spacing {
     margin: 20px;
 }
