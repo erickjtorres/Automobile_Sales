@@ -49,13 +49,13 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     
-    console.log(req.body.email, req.body.email);
+    functions.login(req.body.email, req.body.email);
     
   });
 
 app.post('/purchases', function(req, res)  {
     //check for cid
-    data = console.log(req.body.cid);
+    data = functions.purchases(req.body.cid);
     res.send(data);
 
 });
