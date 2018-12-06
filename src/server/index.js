@@ -32,7 +32,7 @@ app.use(function(req, res, next) {
 
 app.post('/signup', function(req, res) {
     if(req.body.type === 'c') {
-        functions.customer(req.body.fname, req.body.lname, req.body.phone, req.body.email, req.body.password, req.body.st_num, req.body.st, req.body.city, req.body.state)
+        functions.customer(req.body.fname, req.body.lname, req.body.gender, req.body.income, req.body.phone, req.body.email, req.body.password, req.body.st_num, req.body.st, req.body.city, req.body.state)
     } else if (req.body.type === 'e') {
         functions.employee(req.body.fname, req.body.lname, req.body.email, req.body.password)
     }

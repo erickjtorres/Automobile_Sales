@@ -47,9 +47,9 @@ function get(query){
 }
 
 
-exports.customer = function(fname, lname, phone, email, password,st_num, st, city, state) {
-    var query = "INSERT INTO CUSTOMER(FNAME, LNAME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
-    var values = [[fname, lname, phone, email, password, st_num, st, city, state]]
+exports.customer = function(fname, lname, gender, income, phone, email, password,st_num, st, city, state) {
+    var query = "INSERT INTO CUSTOMER(FNAME, LNAME, GENDER, INCOME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
+    var values = [[fname, lname, gender, income, phone, email, password, st_num, st, city, state]]
  
      
   //var values = [['fname', 'lname', 1235, 'email', 'password', 5, 'hull', 'city', 'state']]
