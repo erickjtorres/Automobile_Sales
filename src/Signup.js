@@ -12,7 +12,7 @@ class Signup extends Component {
             <div className="choice row">
             <div className="spacing col-sm-12"></div>
             <a href='/Signup/Customer'  className="btn btn-primary btn-lg  col-sm-3  offset-sm-2">Customer</a>
-            <a href='/Signup/Customer' className="btn btn-secondary btn-lg col-sm-3  offset-sm-2">Employee</a>
+            <a href='/Signup/Employee' className="btn btn-secondary btn-lg col-sm-3  offset-sm-2">Employee</a>
             <div className="spacing col-sm-12"></div>
             </div>
             <div className="spacing col-sm-12"></div>

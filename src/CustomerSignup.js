@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './styles/CustomerSignupStyles.css'
 //This needs to be split into multiple components --> future
 
 //req.body.fname, req.body.lname, req.body.phone, req.body.eEmail, req.body.ePassword, req.body.st_num, req.body.st, req.body.city, req.body.state
@@ -16,6 +16,8 @@ class CustomerSignup extends Component {
             st: '',
             city: '',
             state: '',
+            gender: '',
+            income: '',
             type: 'c'
           }
       }
@@ -74,6 +76,16 @@ class CustomerSignup extends Component {
             state: event.target.value
         }) 
     }
+    handleGenderChange  = (event) => {
+        this.setState({
+            gender: event.target.value
+        }) 
+    }
+    handleIncomeChange  = (event) => {
+        this.setState({
+            income: event.target.value
+        }) 
+    }
 
 
     handleSubmit = (event) => {
@@ -93,7 +105,7 @@ class CustomerSignup extends Component {
     
     render () {
         return (
-            <form className="signform" onSubmit={this.handleSubmit}>
+            <form className="signform customerpadding" onSubmit={this.handleSubmit}>
                 <div className="container">
                 <h3 className="text-center">Welcome Customer!</h3>
                 <h4 className="text-center">Sign-Up Below!</h4>
@@ -183,6 +195,24 @@ class CustomerSignup extends Component {
                     </div>
                 </div>
 
+                {/* Gender Name */}
+                <div className="col-sm-8 offset-sm-2">
+                    <div className="row email">
+                        <label>Gender
+                        <input className="text-field" type="text"  placeholder="Male" name="gender" value={this.state.gender} onChange={this.handleGenderChange} required></input>
+                        </label>
+                    </div>
+                </div>
+
+                  {/* Income Name */}
+                  <div className="col-sm-8 offset-sm-2">
+                    <div className="row email">
+                        <label>Income
+                        <input className="text-field" type="text"  placeholder="2132412" name="income" value={this.state.income} onChange={this.handleIncomeChange} required></input>
+                        </label>
+                    </div>
+                </div>
+
 
 
                 
@@ -190,7 +220,7 @@ class CustomerSignup extends Component {
                 <div className="col-sm-6 offset-sm-3">
                 <input className="buttons" type="submit" value="Sign-Up" />
                 </div>
-
+                <div className="paddingbelow"></div>
                 </div>
           </form>
         );
