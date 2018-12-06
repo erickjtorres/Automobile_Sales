@@ -48,8 +48,12 @@ app.post('/login', function (req, res) {
     //     res.send({valid: false});
     // }
     // console.log(functions.signup())
-    
-    functions.login(req.body.email, req.body.email);
+    if(req.body.type == 'c'){
+        functions.c_login(req.body.email, req.body.password)
+    }
+    else if (req.body.type == 'e'){
+        functions.e_login(req.body.email, req.body.password)
+    }
     
   });
 
