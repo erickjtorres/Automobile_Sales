@@ -11,11 +11,11 @@ import EmployeeSignup from './EmployeeSignup';
 class App extends Component {
 
   state = {
-    name: '',
+    eid: '',
     authentication: false
   }
 
-  authenticate = (childState,type ) => {
+  authenticate = (childState, type ) => {
     let info = {}
     if (type === 'c') {
       info = {
@@ -39,7 +39,8 @@ class App extends Component {
     })
       .then((response) => response.json())
       .then((object) => this.setState({
-        authentication: object.valid}))
+        eid: object.eid,
+        authentication: true }))
       .catch(err => console.error(err))
       console.log(info);
   } 

@@ -12,6 +12,7 @@ class EmployeeSignup extends Component {
             phone: '',
             email: '',
             password: '',
+            dealer:'',
             type: 'e'
           }
       }
@@ -46,6 +47,11 @@ class EmployeeSignup extends Component {
         }) 
     }
 
+    handleDealerChange = (event) => {
+        this.setState({
+            dealer: event.target.value
+        }) 
+    }
 
     handleSubmit = (event) => {
         fetch('http://localhost:3001/signup', {
@@ -73,6 +79,15 @@ class EmployeeSignup extends Component {
                     <div className="col-sm-8 offset-sm-2 black_bottom"></div>
                 </div>
 
+                {/* DealerID Submission */}
+                <div className="col-sm-8 offset-sm-2">
+                    <div className="row email">
+                        <label>DealerID
+                        <input className="text-field" type="text"  placeholder="213444" name="dealer" value={this.state.dealer} onChange={this.handleDealerChange} required></input>
+                        </label>
+                    </div>
+                </div>
+
                 {/* First Name Submission */}
                 <div className="col-sm-8 offset-sm-2">
                     <div className="row email">
@@ -81,6 +96,7 @@ class EmployeeSignup extends Component {
                         </label>
                     </div>
                 </div>
+
 
                 {/* Last Name Submission */}
                 <div className="col-sm-8 offset-sm-2">
