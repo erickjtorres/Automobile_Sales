@@ -55,7 +55,7 @@ app.post('/login', function (req, res) {
 
 app.post('/purchases', function(req, res)  {
     //check for cid
-    data = functions.purchases(req.body.cid);
+    data = functions.cust_info(req.body.cid);
     res.send(data);
 
 });

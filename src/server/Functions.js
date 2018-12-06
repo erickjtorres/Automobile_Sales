@@ -70,10 +70,15 @@ exports.login = function(email, password){
 	return get(query)
 }
 
-exports.purchases = function(cid){
+exports.cust_info = function(cid){
   var query = "SELECT s.VIN, BRAND, MODEL, COLOR, d.FNAME, e.FNAME, e.LNAME, s.DOS FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN JOIN EMPLOYEE e ON e.EID=s.EID JOIN DEALER d ON d.DID=s.DID WHERE CID=cid"
   return get(query)
   
+}
+
+exports.emp_info = function(eid){
+	var query = "SELECT s.DOS, s.VIN, v.BRAND, v.MODEL, v.COLOR FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN WHERE EID=eid"
+	console.log(get(query))
 }
 
 // exports.login = function(eEmail, ePassword){
