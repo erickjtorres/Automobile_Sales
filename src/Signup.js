@@ -15,6 +15,7 @@ class Signup extends Component {
             <button type="button" className="btn btn-secondary btn-md col-sm-3  offset-sm-2">Employee</button>
             <div className="spacing col-sm-12"></div>
             </div>
+            <div className="spacing col-sm-12"></div>
             </div>
         );
     }
