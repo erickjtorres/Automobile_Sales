@@ -36,18 +36,18 @@ con.connect(function(err) {
 }
 
 function get(query){
-	con.connect(function(err){
-		if (err) throw err;
-		con.query(query, function(err, result){
-			if(err) throw err;
-			console.log(result)
-			return result
-		});
+con.connect(function(err){
+	if (err) throw err;
+	con.query(query, function(err, result){
+		if(err) throw err;
+		console.log(result)
+		return result
 	});
+});
 }
 
 
-exports.customer = function(fname, lname, gender, income, phone, email, password,st_num, st, city, state) {
+exports.customer = function(fname, lname, phone, email, password,st_num, st, city, state, gender, income) {
     var query = "INSERT INTO CUSTOMER(FNAME, LNAME, GENDER, INCOME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
     var values = [[fname, lname, gender, income, phone, email, password, st_num, st, city, state]]
  
@@ -57,9 +57,9 @@ exports.customer = function(fname, lname, gender, income, phone, email, password
   return insert(query, values)
 }
 
-exports.employee = function(fname, lname, phone, did, email, password){
-	var query = "INSERT INTO EMPLOYEE(FNAME, LNAME, PHONE, DID, EMAIL, PASS) VALUES ?"
-    var values = [[fname, lname, phone, did, email, password]]
+exports.employee = function(fname, lname,  did, email, password){
+	var query = "INSERT INTO EMPLOYEE(FNAME, LNAME, DID, EMAIL, PASS) VALUES ?"
+    var values = [[fname, lname, did, email, password]]
 
     return insert(query, values)
 
