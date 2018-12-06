@@ -32,9 +32,9 @@ app.use(function(req, res, next) {
 
 app.post('/signup', function(req, res) {
     if(req.body.type === 'c') {
-        functions.customer(req.body.fname, req.body.lname, req.body.phone, req.body.email, req.body.password, req.body.st_num, req.body.st, req.body.city, req.body.state)
+        functions.customer(req.body.fname, req.body.lname, req.body.phone, req.body.email, req.body.password, req.body.st_num, req.body.st, req.body.city, req.body.state, req.body.gender, req.body.income)
     } else if (req.body.type === 'e') {
-        functions.employee(req.body.fname, req.body.lname, req.body.email, req.body.password)
+        functions.employee(req.body.fname, req.body.lname, req.body.dealer, req.body.email, req.body.password)
     }
 });
 
@@ -49,13 +49,13 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     
-    console.log(req.body.email, req.body.email);
+    functions.login(req.body.email, req.body.email);
     
   });
 
 app.post('/purchases', function(req, res)  {
     //check for cid
-    data = console.log(req.body.cid);
+    data = functions.cust_info(req.body.cid);
     res.send(data);
 
 });

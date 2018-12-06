@@ -24,7 +24,7 @@ var con = mysql.createConnection({
 //   if (error) throw error;
 //   console.log('The solution is: ', results[0].solution);
 // });
-function queries(query, values) {
+function insert(query, values) {
 con.connect(function(err) {
   if (err) throw err;
   con.query(query, [values], function (err, result) {
@@ -35,27 +35,50 @@ con.connect(function(err) {
 });
 }
 
+function get(query){
+con.connect(function(err){
+	if (err) throw err;
+	con.query(query, function(err, result){
+		if(err) throw err;
+		console.log(result)
+		return result
+	});
+});
+}
 
-exports.customer = function(fname, lname, phone, email, password,st_num, st, city, state) {
-    var query = "INSERT INTO CUSTOMER(FNAME, LNAME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
-    var values = [[fname, lname, phone, email, password, st_num, st, city, state]]
+
+exports.customer = function(fname, lname, phone, email, password,st_num, st, city, state, gender, income) {
+    var query = "INSERT INTO CUSTOMER(FNAME, LNAME, GENDER, INCOME, PHONE, EMAIL, PASS, st_num, st, city, state) VALUES ?"
+    var values = [[fname, lname, gender, income, phone, email, password, st_num, st, city, state]]
  
      
   //var values = [['fname', 'lname', 1235, 'email', 'password', 5, 'hull', 'city', 'state']]
   
-  return queries(query, values)
+  return insert(query, values)
 }
 
-exports.employee = function(fname, lname, phone, did, email, password){
-	var query = "INSERT INTO EMPLOYEE(FNAME, LNAME, PHONE, DID, EMAIL, PASS) VALUES ?"
-    var values = [[fname, lname, phone, did, email, password]]
+exports.employee = function(fname, lname,  did, email, password){
+	var query = "INSERT INTO EMPLOYEE(FNAME, LNAME, DID, EMAIL, PASS) VALUES ?"
+    var values = [[fname, lname, did, email, password]]
+
+    return insert(query, values)
 
 }
 
-exports.purchases = function(cid){
-  var query = "SELECT s.VIN, s.DID, BRAND, MODEL, COLOR FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN WHERE CID=cid"
-  return queries(query)
+exports.login = function(email, password){
+	var query = "SELECT CID FROM CUSTOMER WHERE (EMAIL=email and PASS=password)"
+	return get(query)
+}
+
+exports.cust_info = function(cid){
+  var query = "SELECT s.VIN, BRAND, MODEL, COLOR, d.FNAME, e.FNAME, e.LNAME, s.DOS FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN JOIN EMPLOYEE e ON e.EID=s.EID JOIN DEALER d ON d.DID=s.DID WHERE CID=cid"
+  return get(query)
   
+}
+
+exports.emp_info = function(eid){
+	var query = "SELECT s.DOS, s.VIN, v.BRAND, v.MODEL, v.COLOR FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN WHERE EID=eid"
+	console.log(get(query))
 }
 
 // exports.login = function(eEmail, ePassword){
