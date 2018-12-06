@@ -7,12 +7,12 @@ class Signup extends Component {
         return (
             <div>
             <div className="row">
-                <h1 className="col-sm-6 offset-sm-3 text-white">Are you an employee or a customer?</h1>
+                <h1 className="col-sm-6 offset-sm-3 text-white text-outline">Are you an employee or a customer?</h1>
             </div>
             <div className="choice row">
             <div className="spacing col-sm-12"></div>
-            <button type="button" className="btn btn-primary btn-md  col-sm-3  offset-sm-2">Customer</button>
-            <button type="button" className="btn btn-secondary btn-md col-sm-3  offset-sm-2">Employee</button>
+            <a href='/Signup/Customer'  className="btn btn-primary btn-lg  col-sm-3  offset-sm-2">Customer</a>
+            <a href='/Signup/Customer' className="btn btn-secondary btn-lg col-sm-3  offset-sm-2">Employee</a>
             <div className="spacing col-sm-12"></div>
             </div>
             <div className="spacing col-sm-12"></div>
