@@ -1,3 +1,9 @@
-.form {
-    
+.choice {
+        background-color: #F9F7F7;
+        margin: 25px;
+        border-radius: 10px;
+}
+
+.spacing {
+    margin: 20px;
 }

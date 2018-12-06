@@ -138,6 +138,15 @@ class CustomerSignup extends Component {
                     </div>
                 </div>
 
+                  {/* Phone Number*/}
+                  <div className="col-sm-8 offset-sm-2">
+                    <div className="row email">
+                        <label>City
+                        <input className="text-field" type="text"  placeholder="3124785453" name="phone" value={this.state.phone} onChange={this.handlePhoneChange} required></input>
+                        </label>
+                    </div>
+                </div>
+
                 {/* Street Number */}
                 <div className="col-sm-8 offset-sm-2">
                     <div className="row email">
