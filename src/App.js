@@ -5,6 +5,7 @@ import Employee from './Employee';
 import CustomerSignup from './CustomerSignup';
 import './styles/App.css';
 import {BrowserRouter, Route} from "react-router-dom";
+import Signup from './Signup';
 
 class App extends Component {
 
@@ -60,7 +61,7 @@ class App extends Component {
             <Route path="/Customer" component = {Customer} exact />
             <Route path="/Employee" component = {Employee} exact />
             <Route path="/Signup/Customer" component = {CustomerSignup} exact />
-            {/* <Route path="/Signup/Employee" component = {EmployeeSignup} exact /> */}
+            <Route path="/Signup" component = {Signup} exact />
           </div>
         </BrowserRouter>
       </div>

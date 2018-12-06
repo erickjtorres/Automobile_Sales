@@ -31,7 +31,6 @@ app.use(function(req, res, next) {
 });
 
 app.post('/signup', function(req, res) {
-    //console.log((functions.signup(req.body.fname, req.body.lname, req.body.phone, req.body.eEmail, req.body.ePassword)))
     if(req.body.type === 'c') {
         console.log(req.body.fname, req.body.lname, req.body.phone, req.body.email, req.body.password, req.body.st_num, req.body.st, req.body.city, req.body.state)
     } else if (req.body.type === 'e') {
