@@ -15,8 +15,12 @@
     border-radius: 10px;
     left: 25%;
     right: 25%;
-    top: 25%;
-    bottom: 25%;
+    top: 10%;
+    bottom: 10%;
     margin: auto;
     background: white;
+  }
+
+  .top-padding {
+      margin: 10px;
   }
