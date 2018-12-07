@@ -30,7 +30,7 @@ class Customer extends Component {
           .catch(err => console.error(err))
       }
     render () {
-        this.getPurchases(this.props.cid)
+        this.getPurchases({cid: this.props.cid})
         return (
             <div>
               <div className='row'>
