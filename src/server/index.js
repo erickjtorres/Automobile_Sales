@@ -50,6 +50,7 @@ app.post('/login', function (req, res) {
     // console.log(functions.signup())
     if(req.body.type == 'c'){
         functions.c_login(req.body.email, req.body.password).then(function(value){
+            console.log(req.body)
             res.send(JSON.stringify({cid:value}));
         });
         
@@ -69,7 +70,7 @@ app.post('/purchases', function(req, res)  {
     //var data = functions.cust_info(req.body.cid);
     //res.send(data);
 
-    functions.cust_info(req.body.eid).then(function(value){
+    functions.cust_info(req.body.cid).then(function(value){
             console.log(value)
             res.send(JSON.stringify(value));
         });
@@ -101,9 +102,13 @@ app.post('/stock', function(req, res) {
         });
 });
 
-app.post('/addStock', function(req, res) {
-    functions.employee(req.body.did, req.body.brand, req.body.model, req.body.color);
+app.post('/addVehicle', function(req, res) {
+    functions.addVehicle(req.body.did, req.body.brand, req.body.model, req.body.color);
 });
+
+app.post('/deleteVehicle', function(req, red){
+    functions.deleteVehicle(req.body.vin);
+})
 
 // app.post('/remove', function(req, res) {
 //     //check for eid
