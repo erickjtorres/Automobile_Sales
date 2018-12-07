@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './styles/Login.css';
 import Form from './Form';
 import { Redirect } from 'react-router-dom';
-import { runInThisContext } from 'vm';
 
 
 class Login extends Component {

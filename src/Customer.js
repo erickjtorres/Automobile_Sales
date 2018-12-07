@@ -7,7 +7,7 @@ class Customer extends Component {
         super(props);
         this.state = {
             purchases: [],
-            cid: "",
+            personalinfo: [],
             showpopup: false
           }
       }
@@ -33,18 +33,17 @@ class Customer extends Component {
         this.getPurchases(this.props.cid)
         return (
             <div>
-            <div className='row'>
-            <h4 className='text-white col-sm-6' >Purchases</h4>
-            <button className='btn btn-primary btn-sm  col-sm-2  offset-sm-3'>Change Account Info</button>
-            </div>
-            <InfoTable data={this.state.purchases}/>
-            {this.state.showPopup ? 
-          <Popup
-            text='Close Me'
-            closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
+              <div className='row'>
+                <h4 className='text-white col-sm-6' >Purchases</h4>
+                <button onClick={this.togglePopup.bind(this)} className='btn btn-primary btn-sm  col-sm-2  offset-sm-3'>Change Account Info</button>
+              </div>
+              <InfoTable data={this.state.purchases}/>
+              {this.state.showPopup ? 
+            <Popup
+              closePopup={this.togglePopup.bind(this)}
+            />
+            : null
+          }
             </div>
         );
     } 
