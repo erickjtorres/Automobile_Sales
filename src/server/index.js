@@ -49,14 +49,16 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     if(req.body.type == 'c'){
-        var data = functions.c_login(req.body.email, req.body.password)
+        functions.c_login(req.body.email, req.body.password).then(function(value){
+            res.send(JSON.stringify({cid:value}));
+        });
+        
 
     }
     else if (req.body.type == 'e'){
         functions.e_login(req.body.email, req.body.password).then(function(value){
-            console.log("NEW VALUE IS: " + value);
             res.send(JSON.stringify({eid:value}));
-        })
+        });
     }
     
     
@@ -64,15 +66,22 @@ app.post('/login', function (req, res) {
 
 app.post('/purchases', function(req, res)  {
     //check for cid
-    var data = functions.cust_info(req.body.cid);
-    res.send(data);
+    //var data = functions.cust_info(req.body.cid);
+    //res.send(data);
+    functions.cust_info(req.body.eid).then(function(value){
+            console.log(value)
+            res.send(JSON.stringify(value));
+        });
 
 });
 
 app.post('/sales', function(req, res) {
     //check for eid
-    var data = functions.emp_info(req.body.eid);
-    res.send(data);
+    //var data = functions.emp_info(req.body.eid);
+    //res.send(data);
+    functions.emp_info(req.body.eid).then(function(value){
+            res.send(JSON.stringify({eid:value}));
+        });
 
 });
 
@@ -80,9 +89,15 @@ app.post('/sales', function(req, res) {
 
 app.post('/stock', function(req, res) {
     //check for eid
-    functions.stock(req.body.eid);
-    res.send(data);
+    //functions.stock(req.body.eid);
+    //res.send(data);
+     functions.stock(req.body.eid).then(function(value){
+            res.send(JSON.stringify({eid:value}));
+        });
+});
 
+app.post('/addStock', function(req, res) {
+    functions.employee(req.body.did, req.body.brand, req.body.model, req.body.color);
 });
 
 // app.post('/remove', function(req, res) {
