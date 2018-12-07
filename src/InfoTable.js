@@ -36,10 +36,10 @@ class InfoTable extends Component {
         } else if (this.props.type === 'st') {
             let listItems = this.props.data.map((data) =>  
             <div className="row columns">
-            <div className="col-sm-2 text-center">{data.VIN}</div> 
             <div className="col-sm-2 text-center">{data.COLOR}</div> 
             <div className="col-sm-2 text-center">{data.BRAND}</div>
             <div className="col-sm-2 text-center">{data.MODEL}</div>
+            <div className="col-sm-2 text-center">{data.CT}</div>
         </div>);
             return (
                 <div>{listItems}</div>
