@@ -114,22 +114,22 @@ exports.cust_info = function(cid){
 }
 
 exports.emp_info = function(eid){
-	var query = "SELECT s.DOS, s.VIN, v.BRAND, v.MODEL, v.COLOR FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN WHERE EID="+eid
+	var query = "SELECT s.DOS, s.CID, s.VIN, v.BRAND, v.MODEL, v.COLOR FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN WHERE EID="+eid
 	return new Promise(function(resolve, reject){
  		get(query).then(function(value){
- 			resolve(value[0].EID);
+ 			resolve(value);
  		})
  	});
 
 }
 
 exports.stock = function(eid){
-	var query = "SELECT BRAND, MODEL, COLOR, count(*) AS ct FROM (SELECT * FROM VEHICLE WHERE DID=(SELECT DID FROM EMPLOYEE WHERE EID="+ eid +")) EMP_TO_DEAL GROUP BY BRAND, MODEL, COLOR"
+	var query = "SELECT BRAND, MODEL, COLOR, count(*) AS CT FROM (SELECT * FROM VEHICLE WHERE DID=(SELECT DID FROM EMPLOYEE WHERE EID="+ eid +")) EMP_TO_DEAL GROUP BY BRAND, MODEL, COLOR"
 	//var output2 = get(query2)
 	//return output2
 	return new Promise(function(resolve, reject){
  		get(query).then(function(value){
- 			resolve(value[0].EID);
+ 			resolve(value);
  		})
  	});
 }

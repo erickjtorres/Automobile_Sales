@@ -82,7 +82,8 @@ app.post('/sales', function(req, res) {
     //res.send(data);
     console.log(req.body)
     functions.emp_info(req.body.eid).then(function(value){
-            res.send(JSON.stringify({eid:value}));
+            console.log(value)
+            res.send(JSON.stringify(value));
         });
 
 });
@@ -95,7 +96,8 @@ app.post('/stock', function(req, res) {
     //res.send(data);
     console.log(req.body)
      functions.stock(req.body.eid).then(function(value){
-            res.send(JSON.stringify({eid:value}));
+        console.log(value)
+            res.send(JSON.stringify(value));
         });
 });
 
