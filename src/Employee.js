@@ -65,12 +65,15 @@ class Employee extends Component {
                     <h4 className='text-white col-sm-6' >Sale History</h4>
                     <button onClick={this.toggleSalesPopup.bind(this)} className='btn btn-primary btn-sm  col-sm-2  offset-sm-3'>Add Sale</button>
                 </div>
-                <InfoTable data={this.state.history}/>
+                <InfoTable data={this.state.history} type='sl'/>
+  
                 <div className='row'>
                     <h4 className='text-white col-sm-6' >Vehicle Stock</h4>
                     <button onClick={this.toggleStockPopup.bind(this)} className='btn btn-primary btn-sm  col-sm-2  offset-sm-3'>Change Stock</button>
                 </div>
-                <InfoTable data={this.state.stock}/>
+
+                <InfoTable data={this.state.stock} type='st'/>
+
                 {this.state.stockPopup ? 
             <StockPopup
               closePopup={this.toggleStockPopup.bind(this)}
