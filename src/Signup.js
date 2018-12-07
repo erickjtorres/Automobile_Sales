@@ -7,7 +7,7 @@ class Signup extends Component {
         return (
             <div>
             <div className="row">
-                <h1 className="col-sm-6 offset-sm-3 text-white text-outline">Are you an employee or a customer?</h1>
+                <h1 className="col-sm-8 offset-sm-3 text-white text-outline">Are you an Employee or Customer?</h1>
             </div>
             <div className="choice row">
             <div className="spacing col-sm-12"></div>
