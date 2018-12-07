@@ -49,12 +49,16 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     if(req.body.type == 'c'){
-        var data = functions.c_login(req.body.cemail, req.body.cpassword)
+        var data = functions.c_login(req.body.email, req.body.password)
+
     }
     else if (req.body.type == 'e'){
-        var data = functions.e_login(req.body.eemail, req.body.epassword)
+        functions.e_login(req.body.email, req.body.password).then(function(value){
+            console.log("NEW VALUE IS: " + value);
+            res.send(JSON.stringify({eid:value}));
+        })
     }
-    res.send(data)
+    
     
   });
 
