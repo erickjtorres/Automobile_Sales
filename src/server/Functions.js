@@ -65,8 +65,13 @@ exports.employee = function(fname, lname,  did, email, password){
 
 }
 
-exports.login = function(email, password){
+exports.c_login = function(email, password){
 	var query = "SELECT CID FROM CUSTOMER WHERE (EMAIL=email and PASS=password)"
+	return get(query)
+}
+
+exports.e_login = function(email, password){
+	var query = "SELECT EID FROM EMPLOYEE WHERE (EMAIL=email and PASS=password)"
 	return get(query)
 }
 
