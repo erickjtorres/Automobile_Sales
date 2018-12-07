@@ -49,7 +49,11 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     if(req.body.type == 'c'){
-        var data = functions.c_login(req.body.email, req.body.password)
+        functions.c_login(req.body.email, req.body.password).then(function(value){
+            console.log("NEW VALUE IS: " + value);
+            res.send(JSON.stringify({cid:value}));
+        })
+        
 
     }
     else if (req.body.type == 'e'){

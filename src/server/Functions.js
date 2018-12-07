@@ -72,7 +72,11 @@ exports.employee = function(fname, lname,  did, email, password){
 
 exports.c_login = function(email, password){
 	var query = "SELECT CID FROM CUSTOMER WHERE EMAIL='" + email +  "' AND PASS = '" +password+"'";
-	return get(query)
+	return new Promise(function(resolve, reject){
+ 		get(query).then(function(value){
+ 			resolve(value[0].CID)
+ 		})
+ 	});
 }
 
 exports.e_login = function(email, password){
