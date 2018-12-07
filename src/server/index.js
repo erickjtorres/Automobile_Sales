@@ -68,6 +68,7 @@ app.post('/purchases', function(req, res)  {
     //check for cid
     //var data = functions.cust_info(req.body.cid);
     //res.send(data);
+
     functions.cust_info(req.body.eid).then(function(value){
             console.log(value)
             res.send(JSON.stringify(value));
@@ -79,8 +80,10 @@ app.post('/sales', function(req, res) {
     //check for eid
     //var data = functions.emp_info(req.body.eid);
     //res.send(data);
+    console.log(req.body)
     functions.emp_info(req.body.eid).then(function(value){
-            res.send(JSON.stringify({eid:value}));
+            console.log(value)
+            res.send(JSON.stringify(value));
         });
 
 });
@@ -91,8 +94,10 @@ app.post('/stock', function(req, res) {
     //check for eid
     //functions.stock(req.body.eid);
     //res.send(data);
+    console.log(req.body)
      functions.stock(req.body.eid).then(function(value){
-            res.send(JSON.stringify({eid:value}));
+        console.log(value)
+            res.send(JSON.stringify(value));
         });
 });
 
