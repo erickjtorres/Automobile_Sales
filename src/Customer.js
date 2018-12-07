@@ -28,6 +28,8 @@ class Customer extends Component {
           .then((object) => this.setState({
             purchases: object}))
           .catch(err => console.error(err))
+          console.log(this.state);
+          console.log(this.props.cid ); 
       }
     render () {
         this.getPurchases({cid: this.props.cid})
