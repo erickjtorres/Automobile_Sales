@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 
 //req.body.fname, req.body.lname, req.body.phone, req.body.eEmail, req.body.ePassword, req.body.st_num, req.body.st, req.body.city, req.body.state
 class EmployeeSignup extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './styles/Login.css';
 import Form from './Form';
 import { Redirect } from 'react-router-dom';
+import { runInThisContext } from 'vm';
 
 
 class Login extends Component {
@@ -45,8 +46,10 @@ class Login extends Component {
         }
 
     render () {
-        if(this.props.authenticated === true) {
+        if(this.props.authenticated === true && this.props.type === 'c') {
             return <Redirect to='/Customer' />
+          } else if (this.props.authenticated === true && this.props.type==='e') {
+            return <Redirect to='/Employee' />
           }
 
         return (
