@@ -7,6 +7,7 @@ class StockPopup extends Component {
         super(props);
         this.state = {
             vin: '',
+            did: '',
             color: '',
             brand: '',
             model: ''
@@ -37,6 +38,13 @@ class StockPopup extends Component {
             model: event.target.value
         }) 
     }
+
+    handleDidChange = (event) => {
+        this.setState({
+            did: event.target.value
+        }) 
+    }
+
 
     // handleEidChange = (event) => {
     //     this.setState({
@@ -114,6 +122,14 @@ class StockPopup extends Component {
                         </label>
                     </div>
                 </div>
+                </div>
+                 {/* DID Submission */}
+                 <div className="col-sm-4 offset-sm-1">
+                    <div className="row email">
+                        <label>Dealer # (DID)
+                        <input className="text-field" type="text"  placeholder="21312" name="did" value={this.state.did} onChange={this.handleDidChange} required></input>
+                        </label>
+                    </div>
                 </div>
 
                 <div className="col-sm-6 offset-sm-3">
