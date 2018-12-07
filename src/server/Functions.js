@@ -75,6 +75,7 @@ exports.employee = function(fname, lname,  did, email, password){
 
 exports.c_login = function(email, password){
 	var query = "SELECT CID FROM CUSTOMER WHERE EMAIL='" + email +  "' AND PASS = '" +password+"'";
+
 	return new Promise(function(resolve, reject){
  		get(query).then(function(value){
  			resolve(value[0].CID)
@@ -86,6 +87,7 @@ exports.e_login = function(email, password){
 	//console.log(email);
 	//var query = 'SELECT * FROM EMPLOYEE WHERE PASS = ?';
  	var query = "SELECT EID FROM EMPLOYEE WHERE EMAIL='" + email + "'and PASS='" + password+"'";
+
  	//var data 
  	// get(query).then((res)=>{
  	// 	console.log("NEW DATA IS : " + res.data)
@@ -103,7 +105,7 @@ exports.e_login = function(email, password){
 }
 
 exports.cust_info = function(cid){
-  var query = "SELECT s.VIN, BRAND, MODEL, COLOR, d.FNAME, e.FNAME, e.LNAME, s.DOS FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN JOIN EMPLOYEE e ON e.EID=s.EID JOIN DEALER d ON d.DID=s.DID WHERE CID=" + cid 
+  var query = "SELECT s.VIN, BRAND, MODEL, COLOR, d.FNAME, e.FNAME, e.LNAME, s.DOS FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN JOIN EMPLOYEE e ON e.EID=s.EID JOIN DEALER d ON d.DID=s.DID WHERE CID=" + cid; 
   return new Promise(function(resolve, reject){
  		get(query).then(function(value){
  			// console.log(value)
@@ -135,11 +137,16 @@ exports.stock = function(eid){
 }
 
 exports.addVehicle = function(did, brand, model, color) {
-var query = "INSERT INTO VEHICLE (DID, BRAND, MODEL, COLOR) SELECT ? WHERE (SELECT CAPACITY FROM DEALER WHERE DID="+ did +") >0";
+	console.log(did)
+	var cap = "SELECT CAPACITY FROM DEALER WHERE DID="+ did;
+	var ans = get(cap);
+	console.log(ans)
 
-    var values = [[did, brand, model, color]];
+	// var query = "INSERT INTO VEHICLE (DID, BRAND, MODEL, COLOR) SELECT ? WHERE (SELECT CAPACITY FROM DEALER WHERE DID="+ did +") >0";
 
-    return insert(query, values)
+ //    var values = [[did, brand, model, color]];
+
+    // return insert(query, values)
 }
 
 exports.deleteVehicle = function(vin) {
