@@ -67,6 +67,8 @@ DROP TABLE CUSTOMER;
 DROP TABLE ADDRESS;
 DROP TABLE DEALER;
 
+insert into DEALER(DID, FNAME, CAPACITY) values (1 ,'SuperAuto1', 50);
+
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
 GRANT ALL PRIVILEGES ON CS425.* TO 'root'@'localhost';

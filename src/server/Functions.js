@@ -38,7 +38,7 @@ con.connect(function(err) {
 function get(query){
 con.connect(function(err){
 	if (err) throw err;
-	con.query(query, function(err, result){
+	con.query(query, function(err, result) {
 		if(err) throw err;
 		console.log(result)
 		return result
@@ -66,13 +66,17 @@ exports.employee = function(fname, lname,  did, email, password){
 }
 
 exports.c_login = function(email, password){
-	var query = "SELECT CID FROM CUSTOMER WHERE (EMAIL=email and PASS=password)"
-	return get(query)
+	var query = "SELECT CID FROM CUSTOMER WHERE EMAIL= '$email' AND PASS = 'password'";
+	var values = [[email, password]]
+	
+	return insert(query, values)
 }
 
 exports.e_login = function(email, password){
-	var query = "SELECT EID FROM EMPLOYEE WHERE (EMAIL=email and PASS=password)"
-	return get(query)
+	//var query = 'SELECT * FROM EMPLOYEE WHERE PASS = ?';
+ 	var query = "SELECT EID FROM EMPLOYEE WHERE EMAIL= '$email' and pass='$password' "
+	var values = [[email, password]]
+	return (insert(query, values))
 }
 
 exports.cust_info = function(cid){
@@ -83,7 +87,7 @@ exports.cust_info = function(cid){
 
 exports.emp_info = function(eid){
 	var query1 = "SELECT s.DOS, s.VIN, v.BRAND, v.MODEL, v.COLOR FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN WHERE EID=eid"
-	output1= get(query1)
+	var output1= get(query1)
 
 	return (output1)
 
@@ -91,7 +95,7 @@ exports.emp_info = function(eid){
 
 exports.stock = function(eid){
 	var query2 = "SELECT BRAND, MODEL, COLOR, count(*) FROM (SELECT * FROM VEHICLE WHERE DID=(SELECT DID FROM EMPLOYEE WHERE EID='5')) EMP_TO_DEAL GROUP BY BRAND, MODEL, COLOR"
-	output2 = get(query2)
+	var output2 = get(query2)
 
 	return output2
 }

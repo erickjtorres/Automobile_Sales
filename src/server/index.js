@@ -49,10 +49,10 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     if(req.body.type == 'c'){
-        data = functions.c_login(req.body.email, req.body.password)
+        var data = functions.c_login(req.body.cemail, req.body.cpassword)
     }
     else if (req.body.type == 'e'){
-        data = functions.e_login(req.body.email, req.body.password)
+        var data = functions.e_login(req.body.eemail, req.body.epassword)
     }
     res.send(data)
     
@@ -60,14 +60,14 @@ app.post('/login', function (req, res) {
 
 app.post('/purchases', function(req, res)  {
     //check for cid
-    data = functions.cust_info(req.body.cid);
+    var data = functions.cust_info(req.body.cid);
     res.send(data);
 
 });
 
 app.post('/sales', function(req, res) {
     //check for eid
-    data = functions.emp_info(req.body.eid);
+    var data = functions.emp_info(req.body.eid);
     res.send(data);
 
 });
