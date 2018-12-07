@@ -11,8 +11,9 @@ import EmployeeSignup from './EmployeeSignup';
 class App extends Component {
 
   state = {
-    eid: '',
-    authentication: false
+    id: '',
+    authentication: false,
+    type: ''
   }
 
   authenticate = (childState, type ) => {
@@ -23,14 +24,7 @@ class App extends Component {
         password: childState.cPassword,
         type: type
       }
-    } else if (type === 'e') {
-      info = {
-        email: childState.eEmail,
-        password: childState.ePassword,
-        type: type
-      }
-    }
-    fetch('http://localhost:3001/login', {
+      fetch('http://localhost:3001/login', {
       method: 'POST',
       body: JSON.stringify(info),
       headers: {
@@ -39,10 +33,31 @@ class App extends Component {
     })
       .then((response) => response.json())
       .then((object) => this.setState({
-        eid: object.eid,
-        authentication: true }))
+        id: object.cid,
+        authentication: true,
+        type: 'c' }))
       .catch(err => console.error(err))
-      console.log(info);
+
+    } else if (type === 'e') {
+      info = {
+        email: childState.eEmail,
+        password: childState.ePassword,
+        type: type
+      }
+      fetch('http://localhost:3001/login', {
+      method: 'POST',
+      body: JSON.stringify(info),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then((response) => response.json())
+      .then((object) => this.setState({
+        id: object.eid,
+        authentication: true,
+        type: 'e' }))
+      .catch(err => console.error(err))
+    }
   } 
 
 
@@ -59,9 +74,9 @@ class App extends Component {
       
         <BrowserRouter>
           <div>
-            <Route path="/" render={()=><Login authenticate={this.authenticate} authenticated={this.state.authentication}/>} exact/>
-            <Route path="/Customer" component = {Customer} exact />
-            <Route path="/Employee" component = {Employee} exact />
+            <Route path="/" render={()=><Login authenticate={this.authenticate} type={this.state.type} authenticated={this.state.authentication}/>} exact/>
+            <Route path="/Customer" render={()=><Customer cid={this.state.id}/>} exact />
+            <Route path="/Employee" render={()=><Employee eid={this.state.id}/>}  exact />
             <Route path="/Signup/Customer" component = {CustomerSignup} exact />
             <Route path="/Signup/Employee" component = {EmployeeSignup} exact />
             <Route path="/Signup" component = {Signup} exact />
