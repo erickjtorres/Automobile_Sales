@@ -10,7 +10,8 @@ class Employee extends Component {
             history: [],
             stock: [],
             stockPopup: false,
-            salesPopup: false
+            salesPopup: false,
+            vin: ''
           }
       }
 
@@ -44,6 +45,26 @@ class Employee extends Component {
           .catch(err => console.error(err))
       } 
 
+      handleSubmit = (event) => {
+        fetch('http://localhost:3001/deletevehicle', {
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers: {
+              'Content-Type': 'application/json'
+            },
+          })
+            .then((response) => response.json())
+            .then((object) => console.log(object))
+            .catch(err => console.error(err))
+        
+        event.preventDefault();
+    }
+
+    handleVinChange = (event) => {
+      this.setState({
+          vin: event.target.value
+      }) 
+  }
       toggleStockPopup() {
         this.setState({
           stockPopup: !this.state.stockPopup
@@ -56,7 +77,7 @@ class Employee extends Component {
       }
 
       componentDidMount() {
-        console.log(this.state.stock);
+        // console.log(this.state.stock);
         this.getHistory(this.state);
         this.getStock(this.state);
     
@@ -91,7 +112,25 @@ class Employee extends Component {
             />
             : null
           }
+
+          <form onSubmit={this.handleSubmit}>
+                
+                {/* First Name Submission */}
+                <div className="col-sm-1 offset-sm-1">
+                    <div className="row">
+                        <label className='text-white'>Delete Vehicle
+                        <input className="text-field" type="text"  placeholder="VIN" name="vin" value={this.state.vin} onChange={this.handleVinChange} required></input>
+                        </label>
+                        </div>
+                </div>
+
+                <div className="col-sm-1 offset-sm-2">
+                <input className="button" type="submit" value="Delete" />
+                </div>
+
+          </form>
             </div>
+
         );
     }
 }
