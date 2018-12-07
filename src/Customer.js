@@ -37,7 +37,7 @@ class Customer extends Component {
                 <h4 className='text-white col-sm-6' >Purchases</h4>
                 <button onClick={this.togglePopup.bind(this)} className='btn btn-primary btn-sm  col-sm-2  offset-sm-3'>Change Account Info</button>
               </div>
-              <InfoTable data={this.state.purchases}/>
+              <InfoTable data={this.state.purchases} type='c'/>
               {this.state.showPopup ? 
             <Popup
               closePopup={this.togglePopup.bind(this)}

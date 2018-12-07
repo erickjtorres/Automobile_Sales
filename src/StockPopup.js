@@ -14,21 +14,27 @@ class StockPopup extends Component {
           }
       }
 
-      handleCidChange = (event) => {
+      handleVinChange = (event) => {
           this.setState({
-              cid: event.target.value
+              vin: event.target.value
           }) 
       }
 
-      handleVinChange = (event) => {
+      handleColorChange = (event) => {
         this.setState({
-            vin: event.target.value
+            color: event.target.value
         }) 
     }
 
-    handleDidChange = (event) => {
+    handleBrandChange = (event) => {
         this.setState({
-            did: event.target.value
+            brand: event.target.value
+        }) 
+    }
+
+    handleModelChange = (event) => {
+        this.setState({
+            model: event.target.value
         }) 
     }
 
