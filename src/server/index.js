@@ -49,11 +49,12 @@ app.post('/login', function (req, res) {
     // }
     // console.log(functions.signup())
     if(req.body.type == 'c'){
-        functions.c_login(req.body.email, req.body.password)
+        data = functions.c_login(req.body.email, req.body.password)
     }
     else if (req.body.type == 'e'){
-        functions.e_login(req.body.email, req.body.password)
+        data = functions.e_login(req.body.email, req.body.password)
     }
+    res.send(data)
     
   });
 
@@ -66,17 +67,29 @@ app.post('/purchases', function(req, res)  {
 
 app.post('/sales', function(req, res) {
     //check for eid
-    console.log(req.body.eid);
+    data = functions.emp_info(req.body.eid);
     res.send(data);
 
 });
+
+
 
 app.post('/stock', function(req, res) {
     //check for eid
-    console.log(req.body.eid);
+    functions.stock(req.body.eid);
     res.send(data);
 
 });
+
+// app.post('/remove', function(req, res) {
+//     //check for eid
+//     functions.(req.body.vin);
+//     res.send(data);
+
+// });
+
+
+
 
 
 //This is where we will be listening to the requests

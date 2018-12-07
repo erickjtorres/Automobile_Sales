@@ -82,8 +82,18 @@ exports.cust_info = function(cid){
 }
 
 exports.emp_info = function(eid){
-	var query = "SELECT s.DOS, s.VIN, v.BRAND, v.MODEL, v.COLOR FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN WHERE EID=eid"
-	console.log(get(query))
+	var query1 = "SELECT s.DOS, s.VIN, v.BRAND, v.MODEL, v.COLOR FROM SALES s JOIN VEHICLE v ON s.VIN=v.VIN WHERE EID=eid"
+	output1= get(query1)
+
+	return (output1)
+
+}
+
+exports.stock = function(eid){
+	var query2 = "SELECT BRAND, MODEL, COLOR, count(*) FROM (SELECT * FROM VEHICLE WHERE DID=(SELECT DID FROM EMPLOYEE WHERE EID='5')) EMP_TO_DEAL GROUP BY BRAND, MODEL, COLOR"
+	output2 = get(query2)
+
+	return output2
 }
 
 // exports.login = function(eEmail, ePassword){
