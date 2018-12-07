@@ -124,7 +124,7 @@ exports.emp_info = function(eid){
 }
 
 exports.stock = function(eid){
-	var query = "SELECT BRAND, MODEL, COLOR, count(*) FROM (SELECT * FROM VEHICLE WHERE DID=(SELECT DID FROM EMPLOYEE WHERE EID="+ eid +")) EMP_TO_DEAL GROUP BY BRAND, MODEL, COLOR"
+	var query = "SELECT BRAND, MODEL, COLOR, count(*) AS ct FROM (SELECT * FROM VEHICLE WHERE DID=(SELECT DID FROM EMPLOYEE WHERE EID="+ eid +")) EMP_TO_DEAL GROUP BY BRAND, MODEL, COLOR"
 	//var output2 = get(query2)
 	//return output2
 	return new Promise(function(resolve, reject){
