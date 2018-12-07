@@ -15,9 +15,10 @@ class Employee extends Component {
       }
 
       getHistory = () => {
+        let data = {eid: this.props.eid}
         fetch('http://localhost:3001/sales', {
           method: 'POST',
-          body: JSON.stringify(this.props.eid),
+          body: JSON.stringify(data),
           headers: {
             'Content-Type': 'application/json'
           },
@@ -29,9 +30,10 @@ class Employee extends Component {
       } 
 
       getStock = () => {
+        let data = {eid: this.props.eid}
         fetch('http://localhost:3001/stock', {
           method: 'POST',
-          body: JSON.stringify(this.props.eid),
+          body: JSON.stringify(data),
           headers: {
             'Content-Type': 'application/json'
           },

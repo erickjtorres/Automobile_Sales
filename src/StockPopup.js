@@ -6,9 +6,10 @@ class StockPopup extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cid: '',
             vin: '',
-            did: ''
+            color: '',
+            brand: '',
+            model: ''
             // eid: this.props.eid
           }
       }
@@ -62,7 +63,7 @@ class StockPopup extends Component {
                     <button className='col-sm-1 btn btn-secondary btn-sm offset-sm-3' onClick={this.props.closePopup}>X</button>
                 </div>
                 <div className='row'>
-                    <p className='col-sm-12 text-center'>Make sure to add the correct information! </p>
+                    <p className='col-sm-12 text-center'>Make sure to add the correct information!</p>
                 </div>
                 <form className="signform customerpadding" onSubmit={this.handleSubmit}>
                 <div className="container">
