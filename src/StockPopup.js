@@ -80,8 +80,8 @@ class StockPopup extends Component {
                 {/* First Name Submission */}
                 <div className="col-sm-4 offset-sm-1">
                     <div className="row email">
-                        <label>CID (Customer ID)
-                        <input className="text-field" type="text"  placeholder="123" name="cid" value={this.state.cid} onChange={this.handleCidChange} required></input>
+                        <label>VIN (Vehicle ID)
+                        <input className="text-field" type="text"  placeholder="123" name="vin" value={this.state.vin} onChange={this.handleVinChange} required></input>
                         </label>
                     </div>
                 </div>

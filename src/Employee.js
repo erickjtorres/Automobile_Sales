@@ -55,10 +55,13 @@ class Employee extends Component {
         });
       }
 
-
-    render() {
+      componentDidMount() {
         this.getHistory(this.state);
         this.getStock(this.state);
+      }
+
+
+    render() {
         return (
             <div>
                 <div className='row'>
