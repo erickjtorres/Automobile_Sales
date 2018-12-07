@@ -46,7 +46,7 @@ class StockPopup extends Component {
 
 
     handleSubmit = (event) => {
-        fetch('http://localhost:3001/addVehicle', {
+        fetch('http://localhost:3001/addvehicle', {
             method: 'POST',
             body: JSON.stringify(this.state),
             headers: {
@@ -77,7 +77,7 @@ class StockPopup extends Component {
                     <div className="col-sm-8 offset-sm-2 black_bottom"></div>
                 </div>
                 <div className="row">
-                {/* First Name Submission */}
+                {/* VIN Submission */}
                 <div className="col-sm-4 offset-sm-1">
                     <div className="row email">
                         <label>VIN (Vehicle ID)
@@ -86,29 +86,38 @@ class StockPopup extends Component {
                     </div>
                 </div>
 
-                {/* Last Name Submission */}
+                {/* Color Submission */}
                 <div className="col-sm-4 offset-sm-1">
                     <div className="row email">
-                        <label>VIN (Vehcile ID)
-                        <input className="text-field" type="text"  placeholder="213" name="vin" value={this.state.vin} onChange={this.handleVinChange} required></input>
+                        <label>Color
+                        <input className="text-field" type="text"  placeholder="blue" name="color" value={this.state.color} onChange={this.handleColorChange} required></input>
                         </label>
                     </div>
                 </div>
                 </div>
 
                 <div className="row">
-                {/* Email Submission */}
+                {/* Brand Submission */}
                 <div className="col-sm-4 offset-sm-1">
                     <div className="row email">
-                        <label>DID (Dealership ID)
-                        <input className="text-field" type="text"  placeholder="213" name="did" value={this.state.did} onChange={this.handleDidChange} required></input>
+                        <label>Brand
+                        <input className="text-field" type="text"  placeholder="Tesla" name="brand" value={this.state.brand} onChange={this.handleBrandChange} required></input>
+                        </label>
+                    </div>
+                </div>
+
+                {/* Model Submission */}
+                <div className="col-sm-4 offset-sm-1">
+                    <div className="row email">
+                        <label>Model
+                        <input className="text-field" type="text"  placeholder="Tesla" name="model" value={this.state.model} onChange={this.handleModelChange} required></input>
                         </label>
                     </div>
                 </div>
                 </div>
 
                 <div className="col-sm-6 offset-sm-3">
-                <input className="buttons" type="submit" value="Change Info" />
+                <input className="buttons" type="submit" value="Add Vehicle" />
                 </div>
                 <div className="paddingbelow"></div>
                 </div>

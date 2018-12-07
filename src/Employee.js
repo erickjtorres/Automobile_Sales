@@ -56,8 +56,10 @@ class Employee extends Component {
       }
 
       componentDidMount() {
+        console.log(this.state.stock);
         this.getHistory(this.state);
         this.getStock(this.state);
+    
       }
 
 

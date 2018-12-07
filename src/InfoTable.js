@@ -9,7 +9,7 @@ class InfoTable extends Component {
         if(this.props.type === 'c') { 
         let listItems = this.props.data.map((data) =>  
             <div className="row columns">
-            <div className="col-sm-2 text-center">{data.DATE}</div> 
+            <div className="col-sm-2 text-center">{data.DOS}</div> 
             <div className="col-sm-2 text-center">{data.VIN}</div> 
             <div className="col-sm-2 text-center">{data.FNAME}</div>
             <div className="col-sm-2 text-center">{data.BRAND}</div>
@@ -23,7 +23,7 @@ class InfoTable extends Component {
         } else if (this.props.type === 'sl') {
             let listItems = this.props.data.map((data) =>  
             <div className="row columns">
-            <div className="col-sm-2 text-center">{data.DATE}</div> 
+            <div className="col-sm-2 text-center">{data.DOS}</div> 
             <div className="col-sm-2 text-center">{data.BRAND}</div> 
             <div className="col-sm-2 text-center">{data.MODEL}</div>
             <div className="col-sm-2 text-center">{data.CID}</div>
