@@ -12,6 +12,7 @@
   
   .popup_inner {
     position: absolute;
+    border-radius: 10px;
     left: 25%;
     right: 25%;
     top: 25%;

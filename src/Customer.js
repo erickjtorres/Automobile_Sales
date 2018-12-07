@@ -10,7 +10,7 @@ class Customer extends Component {
             personalinfo: [],
             showpopup: false
           }
-      }
+      } 
       togglePopup() {
         this.setState({
           showPopup: !this.state.showPopup
