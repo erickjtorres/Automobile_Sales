@@ -29,21 +29,26 @@ con.connect(function(err) {
   if (err) throw err;
   con.query(query, [values], function (err, result) {
     if (err) throw err;
-    console.log("Success")
+    console.log(result)
     return result
   });
 });
 }
 
 function get(query){
-con.connect(function(err){
+	return new Promise(function(res, rej){
+		con.connect(function(err){
 	if (err) throw err;
 	con.query(query, function(err, result) {
 		if(err) throw err;
-		console.log(result)
-		return result
+		var string = JSON.stringify(result);
+		var st = JSON.parse(string);
+		res( st);
+		//console.log(result[0].EID);
+		//return (st[0])
 	});
 });
+	});
 }
 
 
@@ -66,17 +71,28 @@ exports.employee = function(fname, lname,  did, email, password){
 }
 
 exports.c_login = function(email, password){
-	var query = "SELECT CID FROM CUSTOMER WHERE EMAIL= '$email' AND PASS = 'password'";
-	var values = [[email, password]]
-	
-	return insert(query, values)
+	var query = "SELECT CID FROM CUSTOMER WHERE EMAIL='" + email +  "' AND PASS = '" +password+"'";
+	return get(query)
 }
 
 exports.e_login = function(email, password){
+	//console.log(email);
 	//var query = 'SELECT * FROM EMPLOYEE WHERE PASS = ?';
- 	var query = "SELECT EID FROM EMPLOYEE WHERE EMAIL= '$email' and pass='$password' "
-	var values = [[email, password]]
-	return (insert(query, values))
+ 	var query = "SELECT EID FROM EMPLOYEE WHERE EMAIL='" + email + "'and PASS='" + password+"'";
+ 	//var data 
+ 	// get(query).then((res)=>{
+ 	// 	console.log("NEW DATA IS : " + res.data)
+ 	// })
+ 	return new Promise(function(resolve, reject){
+ 		get(query).then(function(value){
+ 			resolve(value[0].EID)
+ 		})
+ 	});
+ 	//console.log(get(query));
+ 	
+	//var values = [[email, password]]
+	//console.log(values)
+	//console.log(get(query, values))
 }
 
 exports.cust_info = function(cid){
